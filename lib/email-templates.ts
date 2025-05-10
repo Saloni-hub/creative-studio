@@ -2,7 +2,7 @@ import { ContactFormData } from '@/types';
 
 const companyInfo = {
   name: 'Promotion Studio',
-  website: 'https://yourwebsite.com',
+  website: 'https://promotionstudio.vercel.app/',
   phone: '+1 (123) 456-7890',
   address: '123 Business Street, City, Country',
   logoUrl: 'https://yourwebsite.com/logo.png',
