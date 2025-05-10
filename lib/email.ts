@@ -206,7 +206,7 @@ const createClientEmailContent = (formData: ContactFormData) => {
             
             <p>Best regards,<br>
             <strong>Promotion Studio</strong></p>
-            <a href="https://promotionstudio.vercel.app/" class="cta-button text-white">Visit Our Website</a>
+            <a href="https://promotionstudio.vercel.app/" class="cta-button text-black">Visit Our Website</a>
           </div>
           <div class="footer">
             <p>© ${new Date().getFullYear()} PromotionStudio. All rights reserved.</p>

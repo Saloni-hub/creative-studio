@@ -1,127 +1,5 @@
-// "use client"
-
-// import type React from "react"
-
-// import { useState } from "react"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-// import { Textarea } from "@/components/ui/textarea"
-// import { toast } from "@/components/ui/use-toast"
-
-// export function ContactForm() {
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     phone: "",
-//     service: "",
-//     message: "",
-//   })
-//   const [isSubmitting, setIsSubmitting] = useState(false)
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-//     const { name, value } = e.target
-//     setFormData((prev) => ({ ...prev, [name]: value }))
-//   }
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault()
-//     setIsSubmitting(true)
-
-//     // Simulate form submission
-//     await new Promise((resolve) => setTimeout(resolve, 1500))
-
-//     toast({
-//       title: "Form submitted!",
-//       description: "We'll get back to you as soon as possible.",
-//     })
-
-//     setFormData({
-//       name: "",
-//       email: "",
-//       phone: "",
-//       service: "",
-//       message: "",
-//     })
-//     setIsSubmitting(false)
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit} className="space-y-4">
-//       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-//         <div className="space-y-2">
-//           <Label htmlFor="name">Name</Label>
-//           <Input id="name" name="name" placeholder="Your name" required value={formData.name} onChange={handleChange} />
-//         </div>
-//         <div className="space-y-2">
-//           <Label htmlFor="email">Email</Label>
-//           <Input
-//             id="email"
-//             name="email"
-//             type="email"
-//             placeholder="Your email"
-//             required
-//             value={formData.email}
-//             onChange={handleChange}
-//           />
-//         </div>
-//       </div>
-//       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-//         <div className="space-y-2">
-//           <Label htmlFor="phone">Phone</Label>
-//           <Input
-//             id="phone"
-//             name="phone"
-//             placeholder="Your phone number"
-//             value={formData.phone}
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className="space-y-2">
-//           <Label htmlFor="service">Service</Label>
-//           <select
-//             id="service"
-//             name="service"
-//             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-//             value={formData.service}
-//             onChange={handleChange}
-//           >
-//             <option value="">Select a service</option>
-//             <option value="video-editing">Video Editing</option>
-//             <option value="graphic-design">Graphic Design</option>
-//             <option value="social-media">Social Media Management</option>
-//             <option value="web-development">Web Development</option>
-//             <option value="content-writing">Content Writing</option>
-//             <option value="ads-running">Ads Running</option>
-//             <option value="cgi-video-animation">CGI & Video Animation</option>
-//             <option value="2d-3d-svg-animation">2D/3D/SVG Animation</option>
-//             <option value="other">Other</option>
-//           </select>
-//         </div>
-//       </div>
-//       <div className="space-y-2">
-//         <Label htmlFor="message">Message</Label>
-//         <Textarea
-//           id="message"
-//           name="message"
-//           placeholder="Tell us about your project"
-//           required
-//           className="min-h-[120px]"
-//           value={formData.message}
-//           onChange={handleChange}
-//         />
-//       </div>
-//       <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800" disabled={isSubmitting}>
-//         {isSubmitting ? "Sending..." : "Send Message"}
-//       </Button>
-//     </form>
-//   )
-// }
-
-
 "use client"
-
-import { useState, ChangeEvent, FormEvent } from "react"
+import { useState, ChangeEvent, FormEvent, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -134,6 +12,16 @@ interface FormData {
   phone: string;
   service: string;
   message: string;
+}
+
+interface ValidationError {
+  field: string;
+  message: string;
+}
+
+interface ErrorResponse {
+  error: string;
+  errors?: ValidationError[];
 }
 
 type ServiceOption = {
@@ -161,6 +49,7 @@ export function ContactForm() {
     service: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleChange = (
@@ -168,13 +57,25 @@ export function ContactForm() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Clear error when field is edited
+    if (formErrors[name]) {
+      setFormErrors(prev => {
+        const updated = {...prev};
+        delete updated[name];
+        return updated;
+      });
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    setFormErrors({});
+  
     try {
+      console.log("Submitting form:", formData);
+      
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -182,18 +83,59 @@ export function ContactForm() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await response.json();
-
+      console.log("Response data:", data);
+  
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit form');
+        console.log("Response not OK:", response.status, data);
+        
+        // Handle validation errors
+        if (data.errors && Array.isArray(data.errors)) {
+          // Create a map of field errors
+          const errorMap: Record<string, string> = {};
+          
+          data.errors.forEach((error:any) => {
+            errorMap[error.field] = error.message;
+          });
+          
+          setFormErrors(errorMap);
+          
+          // Show toast with the first error message
+          if (data.errors.length > 0) {
+            console.log("Showing validation error toast");
+            toast({
+              title: "Validation Error",
+              description: data.errors[0].message,
+              variant: "destructive",
+            });
+          } else {
+            console.log("Showing general error toast");
+            toast({
+              title: "Submission Error",
+              description: data.error || "Failed to submit form",
+              variant: "destructive",
+            });
+          }
+        } else {
+          // Handle general error
+          console.log("Showing general error toast (no errors array)");
+          toast({
+            title: "Submission Error",
+            description: data.error || "Failed to submit form",
+            variant: "destructive",
+          });
+        }
+        return;
       }
-
+  
+      // Success case
+      console.log("Showing success toast:", data.message);
       toast({
-        title: "Form submitted!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Success!",
+        description: data.message || "Form submitted successfully! We'll get back to you soon.",
       });
-
+  
       // Reset form after successful submission
       setFormData({
         name: "",
@@ -205,8 +147,8 @@ export function ContactForm() {
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title: "Submission error",
-        description: error instanceof Error ? error.message : "An unexpected error occurred",
+        title: "Submission Error",
+        description: "An unexpected error occurred while processing your request.",
         variant: "destructive",
       });
     } finally {
@@ -226,7 +168,11 @@ export function ContactForm() {
             required 
             value={formData.name} 
             onChange={handleChange} 
+            className={formErrors.name ? "border-red-500" : ""}
           />
+          {formErrors.name && (
+            <p className="text-sm text-red-500">{formErrors.name}</p>
+          )}
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
@@ -238,7 +184,11 @@ export function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
+            className={formErrors.email ? "border-red-500" : ""}
           />
+          {formErrors.email && (
+            <p className="text-sm text-red-500">{formErrors.email}</p>
+          )}
         </div>
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -250,14 +200,18 @@ export function ContactForm() {
             placeholder="Your phone number"
             value={formData.phone}
             onChange={handleChange}
+            className={formErrors.phone ? "border-red-500" : ""}
           />
+          {formErrors.phone && (
+            <p className="text-sm text-red-500">{formErrors.phone}</p>
+          )}
         </div>
         <div className="space-y-2">
           <Label htmlFor="service">Service</Label>
           <select
             id="service"
             name="service"
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formErrors.service ? "border-red-500" : ""}`}
             value={formData.service}
             onChange={handleChange}
           >
@@ -268,6 +222,9 @@ export function ContactForm() {
               </option>
             ))}
           </select>
+          {formErrors.service && (
+            <p className="text-sm text-red-500">{formErrors.service}</p>
+          )}
         </div>
       </div>
       <div className="space-y-2">
@@ -277,10 +234,13 @@ export function ContactForm() {
           name="message"
           placeholder="Tell us about your project"
           required
-          className="min-h-[120px]"
+          className={`min-h-[120px] ${formErrors.message ? "border-red-500" : ""}`}
           value={formData.message}
           onChange={handleChange}
         />
+        {formErrors.message && (
+          <p className="text-sm text-red-500">{formErrors.message}</p>
+        )}
       </div>
       <Button 
         type="submit" 
