@@ -10,6 +10,8 @@ import {
   FileTextIcon,
   TrendingUpIcon,
   MoreHorizontalIcon,
+  FilmIcon,
+  ScanEyeIcon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -77,6 +79,7 @@ export function InteractiveServiceSelector() {
         "Content management systems",
         "Performance optimization",
         "SEO implementation",
+        "Implemented UI and API integration using React, Next, Redux,MUI, chakrUI technologies"
       ],
     },
     {
@@ -105,6 +108,33 @@ export function InteractiveServiceSelector() {
         "Performance tracking and optimization",
       ],
     },
+    {
+      id: "cgi-video-animation",
+      title: "CGI & Video Animation",
+      description: "High-quality CGI and video animation to enhance your brand's visual storytelling.",
+      icon: "FilmIcon",
+      details: [
+        "Realistic CGI rendering",
+        "3D character animation",
+        "Scene composition and editing",
+        "Lighting and effects",
+        "Post-production enhancements",
+      ],
+    },
+    {
+      id: "2d-3d-svg-animation",
+      title: "2D/3D/SVG Animation",
+      description: "Creative animations using 2D, 3D, and SVG for web, apps, and videos.",
+      icon: "ScanEyeIcon",
+      details: [
+        "2D animated videos",
+        "3D model animations",
+        "SVG-based interactive animations",
+        "Animation for websites and mobile apps",
+        "Lottie integration and custom motions",
+      ],
+    },
+    
   ]
 
   const getIcon = (iconName: string) => {
@@ -121,10 +151,15 @@ export function InteractiveServiceSelector() {
         return <FileTextIcon className="h-10 w-10" />
       case "TrendingUpIcon":
         return <TrendingUpIcon className="h-10 w-10" />
+      case "FilmIcon":
+        return <FilmIcon className="h-10 w-10" />
+      case "ScanEyeIcon":
+        return <ScanEyeIcon className="h-10 w-10" />
       default:
         return <MoreHorizontalIcon className="h-10 w-10" />
     }
   }
+  
 
   return (
     <div className="w-full">

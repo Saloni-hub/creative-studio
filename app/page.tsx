@@ -1,22 +1,28 @@
-import Link from "next/link"
-import { ArrowRight, CheckCircle, Mail, MapPin, Phone } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, CheckCircle, Mail, MapPin, Phone } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Testimonial } from "@/components/testimonial"
-import { ContactForm } from "@/components/contact-form"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { InteractiveServiceSelector } from "@/components/interactive-service-selector"
-import { AnimatedStats } from "@/components/animated-stats"
-import { InteractivePortfolio } from "@/components/interactive-portfolio"
-import { InteractiveTimeline } from "@/components/interactive-timeline"
-import { PricingCalculator } from "@/components/pricing-calculator"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { ParticleBackground } from "@/components/particle-background"
-import { FloatingElements } from "@/components/floating-elements"
-import { AnimatedLogo } from "@/components/animated-logo"
-import { AnimatedSphere } from "@/components/animated-sphere"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Testimonial } from "@/components/testimonial";
+import { ContactForm } from "@/components/contact-form";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { InteractiveServiceSelector } from "@/components/interactive-service-selector";
+import { AnimatedStats } from "@/components/animated-stats";
+import { InteractivePortfolio } from "@/components/interactive-portfolio";
+import { InteractiveTimeline } from "@/components/interactive-timeline";
+import { PricingCalculator } from "@/components/pricing-calculator";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { ParticleBackground } from "@/components/particle-background";
+import { FloatingElements } from "@/components/floating-elements";
+import { AnimatedLogo } from "@/components/animated-logo";
+import { AnimatedSphere } from "@/components/animated-sphere";
 
 export default function Home() {
   return (
@@ -35,18 +41,26 @@ export default function Home() {
                       Creative Solutions for Your Digital Presence
                     </h1>
                     <p className="max-w-[600px] text-gray-300 md:text-xl">
-                      We transform your ideas into compelling digital experiences. From video editing to web
-                      development, we've got you covered.
+                      We transform your ideas into compelling digital
+                      experiences. From video editing to web development, we've
+                      got you covered.
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
                     <Link href="#contact">
-                      <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+                      <Button
+                        size="lg"
+                        className="bg-white text-black hover:bg-gray-200"
+                      >
                         Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
                     <Link href="#services">
-                      <Button size="lg" variant="outline" className="border-white text-black hover:text-white hover:bg-white/10">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-white text-black hover:text-white hover:bg-white/10"
+                      >
                         Explore Services
                       </Button>
                     </Link>
@@ -74,17 +88,24 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
+        <section
+          id="services"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 relative overflow-hidden"
+        >
           <FloatingElements />
           <div className="container px-4 md:px-6 relative z-10">
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Our Services</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What We Offer</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Our Services
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    What We Offer
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    We provide a comprehensive range of creative services to help your business stand out in the digital
-                    landscape.
+                    We provide a comprehensive range of creative services to
+                    help your business stand out in the digital landscape.
                   </p>
                 </div>
               </div>
@@ -99,7 +120,10 @@ export default function Home() {
             <ScrollReveal delay={0.4}>
               <div className="flex justify-center">
                 <Link href="#contact">
-                  <Button size="lg" className="bg-black text-white hover:bg-gray-800">
+                  <Button
+                    size="lg"
+                    className="bg-black text-white hover:bg-gray-800"
+                  >
                     Get a Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -109,15 +133,20 @@ export default function Home() {
         </section>
 
         {/* Process Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section id="our_process" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Our Process</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">How We Work</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Our Process
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    How We Work
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Our streamlined process ensures that your project is completed efficiently and to your satisfaction.
+                    Our streamlined process ensures that your project is
+                    completed efficiently and to your satisfaction.
                   </p>
                 </div>
               </div>
@@ -130,15 +159,23 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+        <section
+          id="portfolio"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-50"
+        >
           <div className="container px-4 md:px-6">
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Our Work</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Projects</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Our Work
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Featured Projects
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Take a look at some of our recent projects across different service categories.
+                    Take a look at some of our recent projects across different
+                    service categories.
                   </p>
                 </div>
               </div>
@@ -156,10 +193,15 @@ export default function Home() {
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Testimonials</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What Our Clients Say</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Testimonials
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    What Our Clients Say
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Don't just take our word for it. Here's what our clients have to say about our services.
+                    Don't just take our word for it. Here's what our clients
+                    have to say about our services.
                   </p>
                 </div>
               </div>
@@ -192,14 +234,19 @@ export default function Home() {
         </section>
 
         {/* Animated Logo Showcase */}
-        <section className="w-full py-12 md:py-24 bg-black text-white">
+        {/* <section className="w-full py-12 md:py-24 bg-black text-white">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-white/20 px-3 py-1 text-sm">Interactive Experience</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Creative Technology</h2>
+                <div className="inline-block rounded-lg bg-white/20 px-3 py-1 text-sm">
+                  Interactive Experience
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Creative Technology
+                </h2>
                 <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  We combine cutting-edge technology with creative design to deliver immersive digital experiences.
+                  We combine cutting-edge technology with creative design to
+                  deliver immersive digital experiences.
                 </p>
               </div>
             </div>
@@ -209,27 +256,37 @@ export default function Home() {
                 <AnimatedLogo />
               </div>
               <div className="text-center mt-8">
-                <p className="text-gray-300">Hover over the 3D logo to interact with it</p>
+                <p className="text-gray-300">
+                  Hover over the 3D logo to interact with it
+                </p>
                 <Link href="#contact" className="mt-6 inline-block">
-                  <Button size="lg" className="bg-white text-black hover:bg-gray-200">
+                  <Button
+                    size="lg"
+                    className="bg-white text-black hover:bg-gray-200"
+                  >
                     Start Your Project
                   </Button>
                 </Link>
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Pricing Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Pricing</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Custom Solutions, Custom Pricing</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Pricing
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Custom Solutions, Custom Pricing
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    We offer tailored pricing based on your specific project requirements.
+                    We offer tailored pricing based on your specific project
+                    requirements.
                   </p>
                 </div>
               </div>
@@ -240,7 +297,9 @@ export default function Home() {
                 <Card className="border-2 border-black h-full">
                   <CardHeader className="text-center">
                     <CardTitle className="text-2xl">Custom Quote</CardTitle>
-                    <CardDescription>Tailored to your specific needs</CardDescription>
+                    <CardDescription>
+                      Tailored to your specific needs
+                    </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <ul className="space-y-2">
@@ -254,11 +313,25 @@ export default function Home() {
                       </li>
                       <li className="flex items-center">
                         <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
-                        <span>50% advance payment</span>
+                        <span>
+                          50% Advance Payment is required to begin the project.
+                        </span>
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
-                        <span>Detailed PDF invoice</span>
+                        <CheckCircle className="mr-2 w-[60px] h-[60px]  text-green-500" />
+                        <span>
+                          If the delivered work is not understandable or does
+                          not meet the agreed requirements, a partial or full
+                          refund will be considered based on the extent of the
+                          issue
+                        </span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 w-[35px] h-[35px] text-green-500" />
+                        <span>
+                          Payment Options: Pay via PayPal, Visa (debit/credit),
+                          or UPI (Google Pay, PhonePe, Paytm)
+                        </span>
                       </li>
                       <li className="flex items-center">
                         <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
@@ -267,7 +340,10 @@ export default function Home() {
                     </ul>
                     <div className="text-center mt-6">
                       <Link href="#contact">
-                        <Button size="lg" className="bg-black text-white hover:bg-gray-800 w-full">
+                        <Button
+                          size="lg"
+                          className="bg-black text-white hover:bg-gray-800 w-full"
+                        >
                           Request a Quote
                         </Button>
                       </Link>
@@ -289,8 +365,12 @@ export default function Home() {
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Contact Us</div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get In Touch</h2>
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
+                    Contact Us
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Get In Touch
+                  </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Ready to start your project? Contact us for a custom quote.
                   </p>
@@ -302,24 +382,30 @@ export default function Home() {
               <ScrollReveal direction="left" delay={0.2}>
                 <div>
                   <div className="space-y-4">
-                    <div className="flex items-center">
+                    <a
+                      href="mailto:amanshukla141078@gmail.com"
+                      className="flex items-center hover:underline hover:text-blue-500"
+                    >
                       <Mail className="h-5 w-5 mr-2" />
-                      <span>hello@PromotionStudio.com</span>
-                    </div>
-                    <div className="flex items-center">
+                      <span>amanshukla141078@gmail.com</span>
+                    </a>
+
+                    <a href="tel:+917307994373" className="flex items-center hover:underline hover:text-blue-500">
                       <Phone className="h-5 w-5 mr-2" />
-                      <span>+1 (555) 123-4567</span>
-                    </div>
-                    <div className="flex items-center">
+                      <span>+91 7307994373</span>
+                    </a>
+
+                    {/* <div className="flex items-center">
                       <MapPin className="h-5 w-5 mr-2" />
-                      <span>123 Creative St, Digital City, 10001</span>
-                    </div>
+                      <span>127, Gorakhpur</span>
+                    </div> */}
                   </div>
                   <div className="mt-8">
                     <h3 className="text-xl font-bold mb-4">Follow Us</h3>
                     <div className="flex space-x-4">
                       <Link
-                        href="#"
+                        target="_blank"
+                        href="https://www.facebook.com/share/17nvsrgnyx/"
                         className="h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                       >
                         <svg
@@ -339,7 +425,8 @@ export default function Home() {
                         <span className="sr-only">Facebook</span>
                       </Link>
                       <Link
-                        href="#"
+                        target="_blank"
+                        href="https://www.instagram.com/aman_editor111?igsh=dXAyMXRicHpsNnNo"
                         className="h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                       >
                         <svg
@@ -354,13 +441,20 @@ export default function Home() {
                           strokeLinejoin="round"
                           className="h-5 w-5"
                         >
-                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                          <rect
+                            x="2"
+                            y="2"
+                            width="20"
+                            height="20"
+                            rx="5"
+                            ry="5"
+                          ></rect>
                           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                         <span className="sr-only">Instagram</span>
                       </Link>
-                      <Link
+                      {/* <Link
                         href="#"
                         className="h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                       >
@@ -401,7 +495,7 @@ export default function Home() {
                           <circle cx="4" cy="4" r="2"></circle>
                         </svg>
                         <span className="sr-only">LinkedIn</span>
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
@@ -416,5 +510,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

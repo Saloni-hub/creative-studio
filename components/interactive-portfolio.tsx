@@ -13,7 +13,7 @@ interface PortfolioItem {
   title: string
   category: Category
   description: string
-  image: string
+  url: string
 }
 
 export function InteractivePortfolio() {
@@ -23,45 +23,24 @@ export function InteractivePortfolio() {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      title: "Brand Promotional Video",
+      title: "Mobile App",
       category: "video",
       description: "A captivating promotional video for a tech startup that increased engagement by 45%.",
-      image: "/placeholder.svg?height=400&width=600",
+      url: "/mobile_app.mp4",
     },
     {
       id: 2,
-      title: "E-commerce Website Redesign",
+      title: "Stock Market",
       category: "web",
       description: "Complete redesign of an e-commerce platform that improved conversion rates by 32%.",
-      image: "/placeholder.svg?height=400&width=600",
+      url: "/stock_market.mp4",
     },
     {
       id: 3,
-      title: "Corporate Brand Identity",
+      title: "Pizza Horror",
       category: "design",
       description: "Comprehensive brand identity design for a financial services company.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 4,
-      title: "Product Launch Campaign",
-      category: "video",
-      description: "Video series for a major product launch that generated over 1 million views.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 5,
-      title: "Mobile App UI Design",
-      category: "design",
-      description: "User interface design for a fitness tracking mobile application.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 6,
-      title: "Restaurant Website",
-      category: "web",
-      description: "Responsive website design and development for a high-end restaurant chain.",
-      image: "/placeholder.svg?height=400&width=600",
+      url: "/pizza_horror.mp4",
     },
   ]
 
@@ -70,7 +49,7 @@ export function InteractivePortfolio() {
 
   return (
     <div className="w-full">
-      <div className="flex justify-center mb-8">
+      {/* <div className="flex justify-center mb-8">
         <div className="inline-flex p-1 bg-gray-100 rounded-lg">
           {["all", "video", "design", "web"].map((category) => (
             <Button
@@ -83,7 +62,7 @@ export function InteractivePortfolio() {
             </Button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence>
@@ -100,12 +79,13 @@ export function InteractivePortfolio() {
               onClick={() => setSelectedItem(item)}
             >
               <div className="relative h-64 w-full">
-                <Image
+                {/* <Image
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
                   fill
                   className="object-cover transition-all hover:scale-105"
-                />
+                /> */}
+                <iframe src={item.url} className="object-cover w-full" style={{aspectRatio:16/9}} />
               </div>
               <div className="p-4 bg-white">
                 <span className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 rounded-full mb-2 capitalize">
@@ -118,7 +98,7 @@ export function InteractivePortfolio() {
         </AnimatePresence>
       </motion.div>
 
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -134,9 +114,9 @@ export function InteractivePortfolio() {
               className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-[50vh]">
+              <div className="relative h-[50vh] w-full">
                 <Image
-                  src={selectedItem.image || "/placeholder.svg"}
+                  src={selectedItem.url || "/placeholder.svg"}
                   alt={selectedItem.title}
                   fill
                   className="object-cover"
@@ -164,7 +144,7 @@ export function InteractivePortfolio() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   )
 }

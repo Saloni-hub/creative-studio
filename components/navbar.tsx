@@ -1,40 +1,62 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="flex h-20 w-full items-center px-4 md:px-6 border-b">
-      <Link href="/" className="mr-6 flex items-center">
-      <Link href="/" className="mr-6 flex items-center">
-  <svg width="160" height="40" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="10" width="40" height="40" rx="8" fill="#000000" />
-    <polygon points="15,22 27,30 15,38" fill="#FFFFFF" />
-    <text x="50" y="35" fontFamily="Segoe UI, sans-serif" fontSize="20" fontWeight="600" fill="#000000">
-      Promotion<tspan fill="#555555">Studio</tspan>
-    </text>
-  </svg>
-</Link>
-
-      </Link>
+        <Link href="/" className="mr-6 flex items-center">
+          <svg
+            width="160"
+            height="40"
+            viewBox="0 0 300 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="0" y="10" width="40" height="40" rx="8" fill="#000000" />
+            <polygon points="15,22 27,30 15,38" fill="#FFFFFF" />
+            <text
+              x="50"
+              y="35"
+              fontFamily="Segoe UI, sans-serif"
+              fontSize="20"
+              fontWeight="600"
+              fill="#000000"
+            >
+              Promotion<tspan fill="#555555">Studio</tspan>
+            </text>
+          </svg>
+        </Link>
       <nav className="hidden md:flex gap-6 ml-auto">
-        <Link href="/#services" className="text-sm font-medium hover:underline underline-offset-4">
+        <Link
+          href="/#services"
+          className="text-sm font-medium hover:underline underline-offset-4"
+        >
           Services
         </Link>
-        <Link href="/#contact" className="text-sm font-medium hover:underline underline-offset-4">
+        <Link
+          href="/#contact"
+          className="text-sm font-medium hover:underline underline-offset-4"
+        >
           Contact
         </Link>
-        <Link href="/#" className="text-sm font-medium hover:underline underline-offset-4">
+        <Link
+          href="/#"
+          className="text-sm font-medium hover:underline underline-offset-4"
+        >
           Portfolio
         </Link>
-        <Link href="/#" className="text-sm font-medium hover:underline underline-offset-4">
+        <Link
+          href="/#"
+          className="text-sm font-medium hover:underline underline-offset-4"
+        >
           About
         </Link>
       </nav>
@@ -87,5 +109,5 @@ export function Navbar() {
         </SheetContent>
       </Sheet>
     </header>
-  )
+  );
 }

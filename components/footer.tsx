@@ -17,11 +17,11 @@ export function Footer() {
           <Link href="/#contact" className="text-sm hover:underline underline-offset-4">
             Contact
           </Link>
-          <Link href="/#" className="text-sm hover:underline underline-offset-4">
-            Privacy
+          <Link href="/#pricing" className="text-sm hover:underline underline-offset-4">
+            Pricing
           </Link>
-          <Link href="/#" className="text-sm hover:underline underline-offset-4">
-            Terms
+          <Link href="/#our_process" className="text-sm hover:underline underline-offset-4">
+            Our Process
           </Link>
         </div>
         <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} PromotionStudio. All rights reserved.</p>
