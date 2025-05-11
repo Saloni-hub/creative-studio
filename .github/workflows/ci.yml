@@ -20,7 +20,7 @@ jobs:
           node-version: '22'  # or your project’s version
 
       - name: Install dependencies
-        run: npm install
+        run: - run: npm install --legacy-peer-deps
 
       - name: Lint code
         run: npm run lint
