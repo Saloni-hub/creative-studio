@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, MapPin, MessageCircleMore, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -394,6 +394,18 @@ export default function Home() {
                       <Phone className="h-5 w-5 mr-2" />
                       <span>+91 7307994373</span>
                     </a>
+
+                    <a
+                      href="https://wa.me/917307994373?text=Hi%20Promotion%20Studio%2C%20I%20am%20interested%20in%20graphic%20design%20or%20video%20editing%20services.%20Please%20share%20a%20quote."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center hover:underline hover:text-green-600"
+                    >
+                      <MessageCircleMore className="h-5 w-5 mr-2" />
+                      <span>Get Quote on WhatsApp</span>
+                    </a>
+
+                    
 
                     {/* <div className="flex items-center">
                       <MapPin className="h-5 w-5 mr-2" />
