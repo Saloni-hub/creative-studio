@@ -18,5 +18,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "https://promotionstudio.in/:path*",
+      "destination": "https://www.promotionstudio.in/:path*",
+      "permanent": true
+    }
   ]
 }
