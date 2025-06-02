@@ -25,7 +25,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-# Optional - if you want to auto-generate on build only
-/public/sitemap.xml
-/public/sitemap-0.xml
-/public/robots.txt
