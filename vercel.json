@@ -13,7 +13,7 @@
       "source": "/sitemap-0.xml",
       "headers": [
         {
-          "key": "Content-Type", 
+          "key": "Content-Type",
           "value": "application/xml; charset=utf-8"
         }
       ]
@@ -21,7 +21,13 @@
   ],
   "redirects": [
     {
-      "source": "https://promotionstudio.in/:path*",
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "promotionstudio.in"
+        }
+      ],
       "destination": "https://www.promotionstudio.in/:path*",
       "permanent": true
     }
