@@ -7,11 +7,47 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "PromotionStudio - Creative Agency",
+  title: "Promotion Studio – Best Digital Marketing & Creative Agency in India",
   description:
-    "Professional creative services including video editing, graphic design, social media management, web development, content writing, and ads running.",
-    generator: 'v0.dev'
-}
+    "Promotion Studio offers expert video editing, graphic design, social media management, web development, content writing, and online advertising services to help your brand grow.",
+  keywords: [
+    "Promotion Studio",
+    "digital marketing agency",
+    "creative agency",
+    "video editing",
+    "graphic design",
+    "social media management",
+    "web development",
+    "content writing",
+    "ads running",
+    "branding services India"
+  ],
+  generator: "v0.dev",
+  authors: [{ name: "Promotion Studio", url: "https://www.promotionstudio.in" }],
+  creator: "Promotion Studio",
+  publisher: "Promotion Studio",
+  openGraph: {
+    title: "Promotion Studio – Best Digital Marketing & Creative Agency in India",
+    description:
+      "Explore Promotion Studio's range of professional services: video editing, branding, SEO, graphic design, and more.",
+    url: "https://www.promotionstudio.in",
+    siteName: "Promotion Studio",
+    images: [
+      {
+        url: "https://www.promotionstudio.in/your-og-image.jpg", // Replace with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: "Promotion Studio – Creative Branding and Marketing Agency",
+      },
+    ],
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.promotionstudio.in",
+  },
+  robots: "index, follow",
+};
+
 
 export default function RootLayout({
   children,
@@ -20,19 +56,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      <title>Promotion Studio – Best Digital Marketing and Branding Agency in India</title>
-      <meta name="description" content="Promotion Studio is your one-stop digital marketing and branding agency offering SEO, social media marketing, content creation, and complete online promotion services across India.">
-      <meta name="keywords" content="Promotion Studio, digital marketing agency, branding services, SEO agency, online marketing India, social media marketing, content marketing">
-      <meta name="robots" content="index, follow">
-      <link rel="canonical" href="https://www.promotionstudio.in/" />
-      <meta name="author" content="Promotion Studio" />
-      <meta property="og:title" content="Promotion Studio – Best Digital Marketing and Branding Agency in India" />
-      <meta property="og:description" content="Grow your brand online with Promotion Studio. Explore our expert SEO, branding, and social media services today." />
-      <meta property="og:url" content="https://www.promotionstudio.in/" />
-      <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://www.promotionstudio.in/your-featured-image.jpg" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
